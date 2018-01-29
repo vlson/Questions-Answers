@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="IE=edge,Chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="webkit" name="renderer">
+	<title>发现 - 有问必答</title>
+	<meta content="有问必答,知识社区,社交社区,问答社区" name="keywords">
+	<meta content="有问必答 社交化知识社区" name="description">
+	<base href="">
+	<!--[if IE]>
+</base>
+<![endif]-->
+<link type="image/x-icon" rel="shortcut icon" href="static/css/default/img/favicon.ico?v=20151125">
+
+<link href="static/css/bootstrap.css" type="text/css" rel="stylesheet">
+<link href="static/css/icon.css" type="text/css" rel="stylesheet">
+
+<link type="text/css" rel="stylesheet" href="static/css/default/common.css?v=20151125">
+<link type="text/css" rel="stylesheet" href="static/css/default/link.css?v=20151125">
+<link type="text/css" rel="stylesheet" href="static/js/plug_module/style.css?v=20151125">
+
+<script type="text/javascript">
+	var _90DB43ABD4D2EFB80B143A0DF5B3B668="18C84670BD4E0E36";
+	var G_POST_HASH=_90DB43ABD4D2EFB80B143A0DF5B3B668;
+	var G_INDEX_SCRIPT = "?/";
+	var G_SITE_NAME = "WeCenter";
+	var G_BASE_URL = "";
+	var G_STATIC_URL = "static";
+	var G_UPLOAD_URL = "uploads";
+	var G_USER_ID = "1";
+	var G_USER_NAME = "itbull";
+	var G_UPLOAD_ENABLE = "Y";
+	var G_UNREAD_NOTIFICATION = 0;
+	var G_NOTIFICATION_INTERVAL = 100000;
+	var G_CAN_CREATE_TOPIC = "1";
+	var G_ADVANCED_EDITOR_ENABLE = "Y";
+
+	</script>
+<script type="text/javascript" src="static/js/jquery.2.js?v=20151125"></script>
+<script type="text/javascript" src="static/js/jquery.form.js?v=20151125"></script>
+<script type="text/javascript" src="static/js/plug_module/plug-in_module.js?v=20151125"></script>
+<script type="text/javascript" src="static/js/aws.js?v=20151125"></script>
+<script type="text/javascript" src="static/js/aw_template.js?v=20151125"></script>
+<script type="text/javascript" src="static/js/app.js?v=20151125"></script>
+<script src="static/js/compatibility.js" type="text/javascript"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="static/js/respond.js"></script>
+<![endif]-->
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+</head>
+<body>
+<noscript id="noscript" unselectable="on">
+	<div class="aw-404 aw-404-wrap container">
+		<img src="static/common/no-js.jpg">
+		<p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+	</div>
+</noscript>
+
+<div class="aw-top-menu-wrap">
+	<div class="container">
+		<!-- logo -->
+		<div class="aw-logo hidden-xs">
+			<a href=""></a>
+		</div>
+		<!-- end logo -->
+		<!-- 搜索框 -->
+		<div class="aw-search-box  hidden-xs hidden-sm">
+			<form method="post" id="global_search_form" action="?/search/" class="navbar-search">
+				<input type="text" id="aw-search-query" name="q" autocomplete="off" placeholder="搜索问题、话题或人" class="form-control search-query">
+				<span onclick="$('#global_search_form').submit();" id="global_search_btns" title="搜索"> <i class="icon icon-search"></i>
+				</span>
+				<div class="aw-dropdown">
+					<div class="mod-body">
+						<p class="title">输入关键字进行搜索</p>
+						<ul class="aw-dropdown-list hide"></ul>
+						<p class="search">
+							<span>搜索:</span>
+							<a onclick="$('#global_search_form').submit();"></a>
+						</p>
+					</div>
+					<div class="mod-footer">
+						<a class="pull-right btn btn-mini btn-success publish" onclick="" href="publish.html">发起问题</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- end 搜索框 -->
+		<!-- 导航 -->
+		<div class="aw-top-nav navbar">
+			<div class="navbar-header">
+				<button class="navbar-toggle pull-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+				<ul class="nav navbar-nav">
+					<li>
+						<a class="active" href="index.html"> <i class="icon icon-list"></i>
+							发现
+						</a>
+					</li>
+					<li>
+						<a href="topic_index.html">
+							<i class="icon icon-topic"></i>
+							话题
+						</a>
+					</li>
+					<li>
+						<a style="font-weight:bold;">· · ·</a>
+						<div class="dropdown-list pull-right">
+							<ul id="extensions-nav-list"></ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- end 导航 -->
+		<!-- 未登录展示 -->
+		<div class="aw-user-nav">
+			<!-- 登陆&注册栏 -->
+			<a href="login.html" class="login btn btn-normal btn-primary">登录</a>
+			<a href="register.html" class="register btn btn-normal btn-success">注册</a>
+			<!-- end 登陆&注册栏 -->
+		</div>
+		<!-- 登陆成功展示用户栏 -->
+		<div class="aw-user-nav">
+			<!-- 登陆&注册栏 -->
+			<a class="aw-user-nav-dropdown" href="?/people/itbull">
+				<img src="static/common/avatar-mid-img.png" alt="itbull"></a>
+			<div class="aw-dropdown dropdown-list pull-right">
+				<ul class="aw-dropdown-list">
+					<li class="hidden-xs">
+						<a href="user_set.html">
+							<i class="icon icon-setting"></i>
+							设置
+						</a>
+					</li>
+					<li class="hidden-xs">
+						<a href="admin/login.html">
+							<i class="icon icon-job"></i>
+							管理
+						</a>
+					</li>
+					<li>
+						<a href="?/account/logout/">
+							<i class="icon icon-logout"></i>
+							退出
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- end 登陆&注册栏 -->
+		</div>
+		<!-- end 用户栏 -->
+		<!-- 发起 -->
+		<div class="aw-publish-btn">
+
+			<a onclick="AWS.dialog('publish', {'category_enable':'1', 'category_id':'0', 'topic_title':''}); return false;" href="?/publish/" class="btn-primary" id="header_publish">
+				<i class="icon icon-ask"></i>
+				发起
+			</a>
+			<div class="dropdown-list pull-right">
+				<ul>
+					<li>
+						<a onclick="" href="publish.html">问题</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- end 发起 -->
+	</div>
+</div>
+
+<div class="aw-container-wrap">
+	<div class="container aw-publish">
+		<div class="row">
+			<div class="aw-content-wrap clearfix">
+				<div class="col-sm-12 col-md-9 aw-main-content">
+					<!-- tab 切换 -->
+					<ul class="nav nav-tabs aw-nav-tabs active">
+																								<li><a href="http://localhost/wecenter/?/publish/article/">文章</a></li>
+												<li class="active"><a href="http://localhost/wecenter/?/publish/">问题</a></li>
+						<h2 class="hidden-xs"><i class="icon icon-ask"></i> 发起</h2>
+					</ul>
+					<!-- end tab 切换 -->
+					<form onsubmit="return false;" id="question_form" method="post" action="http://localhost/wecenter/?/publish/ajax/publish_question/">
+						<input type="hidden" value="1C543DE0EBB6743A" name="post_hash">
+						<input type="hidden" value="76d8e3dae7f60b3f00a654003ece88c3" name="attach_access_key">
+						<input type="hidden" value="" id="question_id" name="question_id">
+						<input type="hidden" value="" name="ask_user_id">
+												<select id="category_id" class="hide" name="category_id">
+							<option value="0">- 请选择分类 -</option>
+							<option value="1">默认分类</option><option value="2">PHP</option><option value="3">前端</option><option value="4">Java</option><option value="5">UI</option><option value="6">生活</option><option value="8">iOS</option><option value="9">安卓</option><option value="10">设计</option><option value="13">MySQL</option><option value="14">Linux</option>						</select>
+												<div class="aw-mod aw-mod-publish">
+							<div class="mod-body">
+								<h3>问题标题:</h3>
+								<!-- 问题标题 -->
+								<div class="aw-publish-title">
+									<div>
+										<input type="text" class="form-control" value="" id="question_contents" name="question_content" placeholder="问题标题...">
+										<div class="aw-publish-suggest-question hide">
+											<p class="text-color-999">你的问题可能已经有答案</p>
+											<ul class="aw-dropdown-list">
+											</ul>
+										</div>
+									</div>
+																		<div class="dropdown">
+										<div data-toggle="dropdown" class="dropdown-toggle">
+											<span class="aw-hide-txt" id="aw-topic-tags-select">选择分类</span>
+											<a href="javascript:;"><i class="icon icon-down"></i></a>
+										</div>
+									<div class="aw-dropdown" role="menu" aria-labelledby="dropdownMenu"><ul class="aw-dropdown-list"><li><a data-value="1">默认分类</a></li><li><a data-value="2">PHP</a></li><li><a data-value="3">前端</a></li><li><a data-value="4">Java</a></li><li><a data-value="5">UI</a></li><li><a data-value="6">生活</a></li><li><a data-value="8">iOS</a></li><li><a data-value="9">安卓</a></li><li><a data-value="10">设计</a></li><li><a data-value="13">MySQL</a></li><li><a data-value="14">Linux</a></li></ul></div></div>
+																	</div>
+								<!-- end 问题标题 -->
+
+								<h3>问题补充 (选填):</h3>
+								<div class="aw-mod aw-editor-box">
+									<div class="mod-head">
+										<textarea class="form-control" rows="10"></textarea>
+									</div>
+									<div class="mod-body">
+										<span id="question_detail_message" class="pull-right text-color-999">&nbsp;
+										</span>
+										<div class="aw-upload-box">
+											<input type="file" name="logo">
+										</div>
+									</div>
+								</div>
+								<h3>添加话题:</h3>
+								<div data-type="publish" class="aw-topic-bar active">
+									<div class="tag-bar clearfix">
+
+
+										<span class="aw-edit-topic icon-inverse" style="display: none;"><i class="icon icon-edit"></i> 编辑话题</span>
+
+									</div>
+								<div class="aw-edit-topic-box form-inline" style="display: block;"><input type="text" placeholder="创建或搜索添加新话题..." autocomplete="off" id="aw_edit_topic_title" class="form-control"><a class="btn btn-normal btn-success add">添加</a><a class="btn btn-normal btn-gray close-edit">取消</a><div class="aw-dropdown"><p class="title">没有找到相关结果</p><ul class="aw-dropdown-list"></ul></div></div></div>
+																<h3>最近话题:</h3>
+								<div class="aw-topic-bar">
+									<div class="topic-bar clearfix">
+																				<span onclick="$('#aw_edit_topic_title').val('php');$('.add').click();$(this).hide();" class="topic-tag">
+											<a class="text">
+												php											</a>
+										</span>
+																				<span onclick="$('#aw_edit_topic_title').val('引力');$('.add').click();$(this).hide();" class="topic-tag">
+											<a class="text">
+												引力											</a>
+										</span>
+																				<span onclick="$('#aw_edit_topic_title').val('引力波');$('.add').click();$(this).hide();" class="topic-tag">
+											<a class="text">
+												引力波											</a>
+										</span>
+																			</div>
+								</div>
+																															</div>
+							<div class="mod-footer clearfix">
+																<span class="aw-anonymity">
+																											<label><input type="checkbox" name="anonymous" value="1" class="pull-left">
+										匿名</label>
+
+								</span>
+								<a onclick="AWS.ajax_post($('#question_form')); return false;" id="publish_submit" class="btn btn-large btn-success btn-publish-submit">确认发起</a>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- 侧边栏 -->
+				<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs">
+					<!-- 问题发起指南 -->
+					<div class="aw-mod publish-help">
+						<div class="mod-head">
+							<h3>问题发起指南</h3>
+						</div>
+						<div class="mod-body">
+							<p><b>• 问题标题:</b> 请用准确的语言描述您发布的问题思想</p>
+							<p><b>• 问题补充:</b> 详细补充您的问题内容, 并提供一些相关的素材以供参与者更多的了解您所要问题的主题思想</p>
+							<p><b>• 选择话题:</b> 选择一个或者多个合适的话题, 让您发布的问题得到更多有相同兴趣的人参与. 所有人可以在您发布问题之后添加和编辑该问题所属的话题</p>
+													</div>
+					</div>
+					<!-- end 问题发起指南 -->
+				</div>
+				<!-- end 侧边栏 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="aw-footer-wrap">
+	<div class="aw-footer">
+		Copyright &copy; 2016-2099, All Rights Reserved
+		<span class="hidden-xs">
+			Powered By
+			<a target="blank" href="http://helloitbull.net/">有问必答 1.0</a>
+		</span>
+
+	</div>
+</div>
+
+</body>
+</html>
