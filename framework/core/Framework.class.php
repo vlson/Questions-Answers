@@ -37,6 +37,9 @@ class Framework {
 
     	//定义框架目录路径
     	define('FRAMEWORK_PATH', ROOT_PATH . 'framework');
+
+    	//定义公共资源的路径（绝对路径，从htdocs服务器的根目录出发）
+    	define('PUBLIC_PATH', '/application/public/');
     }
 
     //自动加载函数(当我们访问一个类时，但这个类不存在的时候，就会出发自动加载机制):spl_autoload_register

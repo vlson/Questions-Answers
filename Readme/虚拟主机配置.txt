@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+    ServerAdmin www.Questions-Answers.com
+    #DocumentRoot "${SRVROOT}/Questions-Answers"
+    DocumentRoot "D:/WAMP/Apache24/htdocs/Questions-Answers"
+    ServerName www.Questions-Answers.com
+    ErrorLog "logs/Questions-Answers.com-error.log"
+    CustomLog "logs/Questions-Answers.com-access.log" common
+</VirtualHost>
