@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-02-04 22:24:28
+/* Smarty version 3.1.29, created on 2018-02-25 17:06:09
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\CategoryList.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5a77179c8ac947_39779836',
+  'unifunc' => 'content_5a927c81106616_03358419',
   'file_dependency' => 
   array (
     '0c671bd5527ee768e3e2680be8de889f860b2735' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\CategoryList.html',
-      1 => 1517754266,
+      1 => 1519549566,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5a77179c8ac947_39779836 ($_smarty_tpl) {
+function content_5a927c81106616_03358419 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,26 +33,26 @@ function content_5a77179c8ac947_39779836 ($_smarty_tpl) {
     <meta content="telephone=no" name="format-detection">
     <title>分类管理-有问必答</title>
     <link href="<?php echo PUBLIC_PATH;?>
-/home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
+home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
     <link href="<?php echo PUBLIC_PATH;?>
-/home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
+home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
     <link href="<?php echo PUBLIC_PATH;?>
-/admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
+admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
     <?php echo '<script'; ?>
  src="<?php echo PUBLIC_PATH;?>
-/home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo PUBLIC_PATH;?>
-/home/js/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+home/js/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo PUBLIC_PATH;?>
-/admin/js/framework.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+admin/js/framework.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo PUBLIC_PATH;?>
-/admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <!--[if lte IE 8]>
     <?php echo '<script'; ?>
@@ -73,7 +73,7 @@ function content_5a77179c8ac947_39779836 ($_smarty_tpl) {
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
                         <img width="30" class="img-circle" src="<?php echo PUBLIC_PATH;?>
-/common/avatar-mid-img.png">
+common/avatar-mid-img.png">
                         vlson
                         <span class="caret"></span>
                     </a>
@@ -101,7 +101,7 @@ function content_5a77179c8ac947_39779836 ($_smarty_tpl) {
         <div class="mod">
             <div class="mod-logo">
                 <img alt="" src="<?php echo PUBLIC_PATH;?>
-/admin/img/logo.png" class="pull-left">
+admin/img/logo.png" class="pull-left">
                 <h1>有问必答</h1>
             </div>
 
