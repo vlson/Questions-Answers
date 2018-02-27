@@ -1,26 +1,3 @@
-<?php
-/* Smarty version 3.1.29, created on 2018-02-26 20:58:20
-  from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\CategoryList.html" */
-
-if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
-  'has_nocache_code' => false,
-  'version' => '3.1.29',
-  'unifunc' => 'content_5a94046c65ba50_31275580',
-  'file_dependency' => 
-  array (
-    '0c671bd5527ee768e3e2680be8de889f860b2735' => 
-    array (
-      0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\CategoryList.html',
-      1 => 1519649896,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5a94046c65ba50_31275580 ($_smarty_tpl) {
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,32 +9,15 @@ function content_5a94046c65ba50_31275580 ($_smarty_tpl) {
     <meta content="blank" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <title>分类管理-有问必答</title>
-    <link href="<?php echo PUBLIC_PATH;?>
-home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<?php echo PUBLIC_PATH;?>
-home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<?php echo PUBLIC_PATH;?>
-admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-home/js/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-admin/js/framework.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
+    <link href="<{PUBLIC_PATH}>home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<{PUBLIC_PATH}>home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<{PUBLIC_PATH}>admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
+    <script src="<{PUBLIC_PATH}>home/js/jquery.2.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>home/js/jquery.form.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>admin/js/framework.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>admin/js/global.js?v=20151125" type="text/javascript"></script>
     <!--[if lte IE 8]>
-    <?php echo '<script'; ?>
- type="text/javascript" src="../static/js/respond.js"><?php echo '</script'; ?>
->
+    <script type="text/javascript" src="../static/js/respond.js"></script>
     <![endif]-->
 </head>
 
@@ -72,8 +32,7 @@ admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                        <img width="30" class="img-circle" src="<?php echo PUBLIC_PATH;?>
-common/avatar-mid-img.png">
+                        <img width="30" class="img-circle" src="<{PUBLIC_PATH}>common/avatar-mid-img.png">
                         vlson
                         <span class="caret"></span>
                     </a>
@@ -100,8 +59,7 @@ common/avatar-mid-img.png">
     <div id="aw-side" class="aw-side ps-container">
         <div class="mod">
             <div class="mod-logo">
-                <img alt="" src="<?php echo PUBLIC_PATH;?>
-admin/img/logo.png" class="pull-left">
+                <img alt="" src="<{PUBLIC_PATH}>admin/img/logo.png" class="pull-left">
                 <h1>有问必答</h1>
             </div>
 
@@ -234,36 +192,23 @@ admin/img/logo.png" class="pull-left">
                         </thead>
                         <tbody>
                         <form onsubmit="return false" method="post" action="#" id="category_form"></form>
-                                            <tr>
+                        <{foreach $category as $v}>
+                        <tr>
                             <td>
-                                <a href="#">默认分类</a>
+                                <a href="#"><{$v['catName']}></a>
                             </td>
                             <td>
                                 <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
-                                    0
+                                    <{$v['catId']}>
                                 </div>
                             </td>
                             <td>
                                 <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="category_edit.html" data-original-title="编辑"></a>
-                                <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/remove_category/', 'category_id=1');" data-original-title="删除"></a>
+                                <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=delete&id=<{$v['catId']}>" data-original-title="删除"></a>
                                 
                             </td>
                         </tr>
-                        <tr>
-                        <td>
-                            <a href="#">PHP</a>
-                        </td>
-                        <td>
-                            <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
-                                0
-                            </div>
-                        </td>
-                        <td>
-                            <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="category_edit.html" data-original-title="编辑"></a>
-                            <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/remove_category/', 'category_id=2');" data-original-title="删除"></a>
-                            
-                        </td>
-                    </tr>
+                        <{/foreach}>
 
                         </tbody>
                         <tfoot class="mod-foot-center">
@@ -272,7 +217,7 @@ admin/img/logo.png" class="pull-left">
                             <form onsubmit="return false" method="post" action="http://localhost/wecenter/?/admin/ajax/save_category/" id="add_category_form">
                                
                                 <div class="pull-right" style="margin-right: 150px">
-                                 <a class="btn-primary btn" href="?m=admin&c=category&a=addAction">添加分类</a>
+                                 <a class="btn-primary btn" href="?m=admin&c=category&a=add">添加分类</a>
                                 </div>
                             </form>
                             </td>
@@ -296,5 +241,4 @@ admin/img/logo.png" class="pull-left">
     </div>
 
 </body>
-</html><?php }
-}
+</html>

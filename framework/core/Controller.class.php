@@ -25,4 +25,16 @@ class Controller{
         $this->smartyObj->left_delimiter = '<{';
         $this->smartyObj->right_delimiter = '}>';
     }
+    //封装公共跳转的方法
+    /*
+    *参数一：跳转前提示的信息
+    *参数二：跳转到的链接
+    *参数三：跳转延迟的时间
+    **
+     */
+    public function jump($message, $url, $delay = 3){
+        echo $message;
+        header("Refresh:$delay;url=$url");
+        die;
+    }
 }

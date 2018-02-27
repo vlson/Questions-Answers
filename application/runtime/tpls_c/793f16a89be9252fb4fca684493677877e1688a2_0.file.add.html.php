@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-02-26 20:58:20
-  from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\CategoryList.html" */
+/* Smarty version 3.1.29, created on 2018-02-27 22:47:19
+  from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\category\add.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5a94046c65ba50_31275580',
+  'unifunc' => 'content_5a956f776e7de9_11574259',
   'file_dependency' => 
   array (
-    '0c671bd5527ee768e3e2680be8de889f860b2735' => 
+    '793f16a89be9252fb4fca684493677877e1688a2' => 
     array (
-      0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\CategoryList.html',
-      1 => 1519649896,
+      0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\category\\add.html',
+      1 => 1519742703,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5a94046c65ba50_31275580 ($_smarty_tpl) {
+function content_5a956f776e7de9_11574259 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +44,7 @@ home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo PUBLIC_PATH;?>
-home/js/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+home/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo PUBLIC_PATH;?>
@@ -56,7 +56,8 @@ admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 >
     <!--[if lte IE 8]>
     <?php echo '<script'; ?>
- type="text/javascript" src="../static/js/respond.js"><?php echo '</script'; ?>
+ type="text/javascript" src="<?php echo PUBLIC_PATH;?>
+js/respond.js"><?php echo '</script'; ?>
 >
     <![endif]-->
 </head>
@@ -213,78 +214,71 @@ admin/img/logo.png" class="pull-left">
     </div>
 
     <div class="aw-content-wrap">
+        <form method="post" id="category_form" action="?m=admin&c=category&a=addHandle">
         <div class="mod">
             <div class="mod-head">
                 <h3>
-                    <span class="pull-left">分类管理</span>
+                    <span class="pull-left">添加分类</span>
                 </h3>
             </div>
-
-            <div class="tab-content mod-body">
-                <div class="alert alert-success hide error_message"></div>
-
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>分类标题</th>
-                            <th>排序</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <form onsubmit="return false" method="post" action="#" id="category_form"></form>
-                                            <tr>
-                            <td>
-                                <a href="#">默认分类</a>
-                            </td>
-                            <td>
-                                <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
-                                    0
+            <div class="tab-content mod-content">
+                <table class="table table-striped">
+                    <tbody><tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">分类标题:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input type="text" value="默认分类" name="catName" class="form-control">
                                 </div>
-                            </td>
-                            <td>
-                                <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="category_edit.html" data-original-title="编辑"></a>
-                                <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/remove_category/', 'category_id=1');" data-original-title="删除"></a>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            <a href="#">PHP</a>
-                        </td>
-                        <td>
-                            <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
-                                0
                             </div>
-                        </td>
-                        <td>
-                            <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="category_edit.html" data-original-title="编辑"></a>
-                            <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" onclick="AWS.ajax_request(G_BASE_URL + '/admin/ajax/remove_category/', 'category_id=2');" data-original-title="删除"></a>
-                            
                         </td>
                     </tr>
 
-                        </tbody>
-                        <tfoot class="mod-foot-center">
-                        <tr>
-                            <td colspan="3">
-                            <form onsubmit="return false" method="post" action="http://localhost/wecenter/?/admin/ajax/save_category/" id="add_category_form">
-                               
-                                <div class="pull-right" style="margin-right: 150px">
-                                 <a class="btn-primary btn" href="?m=admin&c=category&a=addAction">添加分类</a>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">父级分类:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <select class="form-control" name="parentId">
+                                        <option value="0">无</option>   
+                                        <?php
+$_from = $_smarty_tpl->tpl_vars['category']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_v_0_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
+$_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['v']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+$__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
+?>                         
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['catId'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['catName'];?>
+</option>  
+                                        <?php
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_local_item;
+}
+if ($__foreach_v_0_saved_item) {
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
+}
+?>                          
+                                    </select>
                                 </div>
-                            </form>
-                            </td>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody><tfoot>
+                    <tr>
+                        <td>
+                            <input type="submit" class="btn btn-primary center-block" value="添加">
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
             </div>
-        </div>
-        <div class="hide" id="target-category">
-            <option value="1">默认分类</option>    
-        </div>
+            </div>
+        </form>
     </div>
 
 

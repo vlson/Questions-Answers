@@ -121,5 +121,18 @@ class Model{
     	//die($sql);
     	return $this->daoObj->fetchRow($sql);
     }
+    //封装获取所有数据的函数
+    public function findAll(){
+        $sql = "select * from `$this->true_table` ";
+        return $this->daoObj->fetchAll($sql);
+    }
+    //封装显示错误的函数
+    public function showError(){
+        $err_str = '';
+        foreach ($this->error as $key => $value) {
+            $err_str .= $value."<br>";
+        }
+        return $err_str;
+    }
     
 }
