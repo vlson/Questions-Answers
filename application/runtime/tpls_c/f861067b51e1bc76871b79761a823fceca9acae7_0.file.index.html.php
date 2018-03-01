@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-02-27 22:28:19
+/* Smarty version 3.1.29, created on 2018-03-01 22:49:21
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\category\index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5a956b034a0437_83631529',
+  'unifunc' => 'content_5a9812f1ad6274_02745347',
   'file_dependency' => 
   array (
     'f861067b51e1bc76871b79761a823fceca9acae7' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\category\\index.html',
-      1 => 1519741697,
+      1 => 1519915758,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5a956b034a0437_83631529 ($_smarty_tpl) {
+function content_5a9812f1ad6274_02745347 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -258,7 +258,8 @@ $__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
                                 </div>
                             </td>
                             <td>
-                                <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="category_edit.html" data-original-title="编辑"></a>
+                                <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=edit&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['catId'];?>
+" data-original-title="编辑"></a>
                                 <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=delete&id=<?php echo $_smarty_tpl->tpl_vars['v']->value['catId'];?>
 " data-original-title="删除"></a>
                                 

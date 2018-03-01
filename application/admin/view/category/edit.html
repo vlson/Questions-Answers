@@ -13,7 +13,7 @@
     <link href="<{PUBLIC_PATH}>home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
     <link href="<{PUBLIC_PATH}>admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
     <script src="<{PUBLIC_PATH}>home/js/jquery.2.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>home/js/jquery.form.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>home/jquery.form.js?v=20151125" type="text/javascript"></script>
     <script src="<{PUBLIC_PATH}>admin/js/framework.js?v=20151125" type="text/javascript"></script>
     <script src="<{PUBLIC_PATH}>admin/js/global.js?v=20151125" type="text/javascript"></script>
     <!--[if lte IE 8]>
@@ -33,7 +33,7 @@
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
                         <img width="30" class="img-circle" src="<{PUBLIC_PATH}>common/avatar-mid-img.png">
-                        vlson
+                        itbull
                         <span class="caret"></span>
                     </a>
 
@@ -171,65 +171,56 @@
     </div>
 
     <div class="aw-content-wrap">
+        <form method="post" id="category_form" action="?m=admin&c=category&a=update">
         <div class="mod">
             <div class="mod-head">
                 <h3>
-                    <span class="pull-left">分类管理</span>
+                    <span class="pull-left">分类编辑</span>
                 </h3>
             </div>
-
-            <div class="tab-content mod-body">
-                <div class="alert alert-success hide error_message"></div>
-
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>分类标题</th>
-                            <th>排序</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <form onsubmit="return false" method="post" action="#" id="category_form"></form>
-                        <{foreach $category as $v}>
-                        <tr>
-                            <td>
-                                <a href="#"><{$v['catName']}></a>
-                            </td>
-                            <td>
-                                <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
-                                    <{$v['catId']}>
+            <div class="tab-content mod-content">
+                <table class="table table-striped">
+                    <tbody><tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">分类标题:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input type="hidden" value="<{$catInfo['catId']}>" name="catId">
+                                    <input type="text" value="<{$catInfo['catName']}>" name="catName" class="form-control">
                                 </div>
-                            </td>
-                            <td>
-                                <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=edit&id=<{$v['catId']}>" data-original-title="编辑"></a>
-                                <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=delete&id=<{$v['catId']}>" data-original-title="删除"></a>
-                                
-                            </td>
-                        </tr>
-                        <{/foreach}>
+                            </div>
+                        </td>
+                    </tr>
 
-                        </tbody>
-                        <tfoot class="mod-foot-center">
-                        <tr>
-                            <td colspan="3">
-                            <form onsubmit="return false" method="post" action="http://localhost/wecenter/?/admin/ajax/save_category/" id="add_category_form">
-                               
-                                <div class="pull-right" style="margin-right: 150px">
-                                 <a class="btn-primary btn" href="?m=admin&c=category&a=add">添加分类</a>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">父级分类:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <select class="form-control" name="parentId">
+                                        <option value="0">无</option>
+                                        <{foreach $category as $v}>
+                                            <option value="<{$v['catId']}>" 
+                                                <{if $catInfo['parentId'] == $v['catId']}> selected<{/if}>>
+                                                <{$v['catName']}> 
+                                            </option>
+                                        <{/foreach}>
+                                    </select>
                                 </div>
-                            </form>
-                            </td>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody><tfoot>
+                    <tr>
+                        <td>
+                            <input type="submit"  value="保存设置">
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
             </div>
-        </div>
-        <div class="hide" id="target-category">
-            <option value="1">默认分类</option>    
-        </div>
+            </div>
+        </form>
     </div>
 
 

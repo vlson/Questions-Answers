@@ -1,3 +1,26 @@
+<?php
+/* Smarty version 3.1.29, created on 2018-03-01 23:09:02
+  from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\category\edit.html" */
+
+if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
+  'has_nocache_code' => false,
+  'version' => '3.1.29',
+  'unifunc' => 'content_5a98178ed379e8_38193419',
+  'file_dependency' => 
+  array (
+    'b9a55f1a6ad23137f6c3189028f3c5486ec7a9da' => 
+    array (
+      0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\category\\edit.html',
+      1 => 1519916939,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5a98178ed379e8_38193419 ($_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +32,32 @@
     <meta content="blank" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <title>分类管理-有问必答</title>
-    <link href="<{PUBLIC_PATH}>home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<{PUBLIC_PATH}>home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<{PUBLIC_PATH}>admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
-    <script src="<{PUBLIC_PATH}>home/js/jquery.2.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>home/js/jquery.form.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>admin/js/framework.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>admin/js/global.js?v=20151125" type="text/javascript"></script>
+    <link href="<?php echo PUBLIC_PATH;?>
+home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<?php echo PUBLIC_PATH;?>
+home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<?php echo PUBLIC_PATH;?>
+admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+home/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+admin/js/framework.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
     <!--[if lte IE 8]>
-    <script type="text/javascript" src="../static/js/respond.js"></script>
+    <?php echo '<script'; ?>
+ type="text/javascript" src="../static/js/respond.js"><?php echo '</script'; ?>
+>
     <![endif]-->
 </head>
 
@@ -32,8 +72,9 @@
 
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                        <img width="30" class="img-circle" src="<{PUBLIC_PATH}>common/avatar-mid-img.png">
-                        vlson
+                        <img width="30" class="img-circle" src="<?php echo PUBLIC_PATH;?>
+common/avatar-mid-img.png">
+                        itbull
                         <span class="caret"></span>
                     </a>
 
@@ -59,7 +100,8 @@
     <div id="aw-side" class="aw-side ps-container">
         <div class="mod">
             <div class="mod-logo">
-                <img alt="" src="<{PUBLIC_PATH}>admin/img/logo.png" class="pull-left">
+                <img alt="" src="<?php echo PUBLIC_PATH;?>
+admin/img/logo.png" class="pull-left">
                 <h1>有问必答</h1>
             </div>
 
@@ -171,65 +213,77 @@
     </div>
 
     <div class="aw-content-wrap">
+        <form method="post" id="category_form" action="?m=admin&c=category&a=update">
         <div class="mod">
             <div class="mod-head">
                 <h3>
-                    <span class="pull-left">分类管理</span>
+                    <span class="pull-left">分类编辑</span>
                 </h3>
             </div>
-
-            <div class="tab-content mod-body">
-                <div class="alert alert-success hide error_message"></div>
-
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>分类标题</th>
-                            <th>排序</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <form onsubmit="return false" method="post" action="#" id="category_form"></form>
-                        <{foreach $category as $v}>
-                        <tr>
-                            <td>
-                                <a href="#"><{$v['catName']}></a>
-                            </td>
-                            <td>
-                                <div class="col-sm-6 clo-xs-12 col-lg-offset-3">
-                                    <{$v['catId']}>
+            <div class="tab-content mod-content">
+                <table class="table table-striped">
+                    <tbody><tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">分类标题:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catId'];?>
+" name="catId">
+                                    <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catName'];?>
+" name="catName" class="form-control">
                                 </div>
-                            </td>
-                            <td>
-                                <a title="" class="icon icon-edit md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=edit&id=<{$v['catId']}>" data-original-title="编辑"></a>
-                                <a title="" class="icon icon-trash md-tip" data-toggle="tooltip" href="?m=admin&c=category&a=delete&id=<{$v['catId']}>" data-original-title="删除"></a>
-                                
-                            </td>
-                        </tr>
-                        <{/foreach}>
+                            </div>
+                        </td>
+                    </tr>
 
-                        </tbody>
-                        <tfoot class="mod-foot-center">
-                        <tr>
-                            <td colspan="3">
-                            <form onsubmit="return false" method="post" action="http://localhost/wecenter/?/admin/ajax/save_category/" id="add_category_form">
-                               
-                                <div class="pull-right" style="margin-right: 150px">
-                                 <a class="btn-primary btn" href="?m=admin&c=category&a=add">添加分类</a>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">父级分类:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <select class="form-control" name="parentId">
+                                        <option value="0">无</option>
+                                        <?php
+$_from = $_smarty_tpl->tpl_vars['category']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_v_0_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
+$_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['v']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+$__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
+?>
+                                            <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['catId'];?>
+" 
+                                                <?php if ($_smarty_tpl->tpl_vars['catInfo']->value['parentId'] == $_smarty_tpl->tpl_vars['v']->value['catId']) {?> selected<?php }?>>
+                                                <?php echo $_smarty_tpl->tpl_vars['v']->value['catName'];?>
+ 
+                                            </option>
+                                        <?php
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_local_item;
+}
+if ($__foreach_v_0_saved_item) {
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
+}
+?>
+                                    </select>
                                 </div>
-                            </form>
-                            </td>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody><tfoot>
+                    <tr>
+                        <td>
+                            <input type="submit"  value="保存设置">
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
             </div>
-        </div>
-        <div class="hide" id="target-category">
-            <option value="1">默认分类</option>    
-        </div>
+            </div>
+        </form>
     </div>
 
 
@@ -241,4 +295,5 @@
     </div>
 
 </body>
-</html>
+</html><?php }
+}

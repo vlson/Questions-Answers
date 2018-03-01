@@ -45,5 +45,35 @@ class CategoryController extends Controller{
 			$this->jump("删除失败！错误信息为：".$this->modelObj->showError(), "index.php?m=admin&c=category&a=index", 3);
 		}
 	}
+	//分类编辑
+	public function editAction(){
+		$catId = $_GET['id'];
+		$field = array('catId','catName','parentId');
+		$where = array('catId'=>$catId);
+		$catInfo = $this->modelObj->findCategory($field, $where);
+
+		$this->smartyObj->assign('catInfo', $catInfo);
+		$categoryList = $this->modelObj->getAllCategory();
+		$this->smartyObj->assign('category', $categoryList);
+		$this->smartyObj->display('category/edit.html');
+	}
+	//分类编辑保存
+	public function updateAction(){
+		$catId = $_POST['catId'];
+		$catName = $_POST['catName'];
+		$parentId = $_POST['parentId'];
+
+		$data = array('catName'=>$catName, 'parentId'=>$parentId);
+		$where = array('catId'=>$catId);
+
+		$res = $this->modelObj->updateCategory($data, $where);
+		if($res){
+			$this->jump("修改成功！", "index.php?m=admin&c=category&a=index", 3);
+		}else{
+			$this->jump("修改失败！错误信息为：".$this->modelObj->showError(), "index.php?m=admin&c=category&a=index", 3);
+		}
+
+
+	}
 
 }

@@ -53,16 +53,16 @@ class CategoryModel extends Model {
         }
     }
     //更新一个商品
-    public function updateGoods(){
-        $data = array('goods_name'=>'荣耀V9');
-        $where = array('goods_id'=>1);
+    public function updateCategory($data, $where){
         $res = $this->update($data, $where);
-        return $res;
+        if($res){
+            return true;
+        }else{
+            return false;
+        }
     }
     //查询商品
-    public function findGoods(){
-        $field = array('goods_name');
-        $where = array('goods_id'=>1);
+    public function findCategory($field, $where){
         $res = $this->find($field, $where);
         return $res;
     }
