@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-02-27 22:47:19
+/* Smarty version 3.1.29, created on 2018-03-13 22:57:29
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\category\add.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5a956f776e7de9_11574259',
+  'unifunc' => 'content_5aa7e6d94ac528_02097023',
   'file_dependency' => 
   array (
     '793f16a89be9252fb4fca684493677877e1688a2' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\category\\add.html',
-      1 => 1519742703,
+      1 => 1520953043,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5a956f776e7de9_11574259 ($_smarty_tpl) {
+function content_5aa7e6d94ac528_02097023 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -254,8 +254,10 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 $__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>                         
                                         <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['catId'];?>
-"><?php echo $_smarty_tpl->tpl_vars['v']->value['catName'];?>
-</option>  
+">
+                                            <?php echo preg_replace('!^!m',str_repeat('&nbsp;&nbsp;&nbsp;',$_smarty_tpl->tpl_vars['v']->value['level']),$_smarty_tpl->tpl_vars['v']->value['catName']);?>
+                                                
+                                        </option>  
                                         <?php
 $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_local_item;
 }
@@ -264,6 +266,16 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
 }
 ?>                          
                                     </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">分类logo:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input type="file" name="catLogo" class="form-control">
                                 </div>
                             </div>
                         </td>

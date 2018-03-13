@@ -21,7 +21,10 @@ class CategoryController extends Controller{
 	//分类添加页
 	public function addAction(){
 		$categoryList = $this->modelObj->getAllCategory();
-		$this->smartyObj->assign('category', $categoryList);
+
+		$res = $this->modelObj->getTreeCategory($categoryList);
+
+		$this->smartyObj->assign('category', $res);
 		$this->smartyObj->display('category/add.html');
 	}
 	//分类添加

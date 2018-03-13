@@ -199,9 +199,21 @@
                                     <select class="form-control" name="parentId">
                                         <option value="0">无</option>   
                                         <{foreach $category as $v}>                         
-                                        <option value="<{$v['catId']}>"><{$v['catName']}></option>  
+                                        <option value="<{$v['catId']}>">
+                                            <{$v['catName']|indent:$v['level']:'&nbsp;&nbsp;&nbsp;'}>                                                
+                                        </option>  
                                         <{/foreach}>                          
                                     </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">分类logo:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <input type="file" name="catLogo" class="form-control">
                                 </div>
                             </div>
                         </td>

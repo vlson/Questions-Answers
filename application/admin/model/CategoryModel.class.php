@@ -21,6 +21,20 @@ class CategoryModel extends Model {
     public function getAllCategory(){
     	return $this->findAll();
     }
+    //获取分类下的子分类
+    //1.操作的数组
+    //2.用来指定哪个分类下的子类，如果走默认值，表示查询所有分类
+    public function getTreeCategory($arr, $p_id=0, $level=0){
+        static $result = array();
+        foreach($arr as $k=>$v){
+            if($v['parentId'] == $p_id){
+                $v['level'] = $level;
+                $result[] = $v;
+                $this->getTreeCategory($arr, $v['catId'], $level+1);
+            }
+        }
+        return $result;
+    }
     //插入一个商品
     public function cat_add($data){
         //验证数据的合法性
