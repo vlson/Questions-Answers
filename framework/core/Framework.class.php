@@ -40,6 +40,12 @@ class Framework {
 
     	//定义公共资源的路径（绝对路径，从htdocs服务器的根目录出发）
     	define('PUBLIC_PATH', '/application/public/');
+
+    	//定义文件上传的根路径
+    	define('UPLOAD_PATH', './application/public/uploads/');
+
+    	//定义压缩图片保存的根路径
+    	define('THUMB_PATH', './application/public/thumb/');
     }
 
     //自动加载函数(当我们访问一个类时，但这个类不存在的时候，就会出发自动加载机制):spl_autoload_register

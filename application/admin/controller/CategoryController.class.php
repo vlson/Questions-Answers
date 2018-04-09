@@ -2,7 +2,8 @@
 namespace admin\controller;
 use framework\core\Controller;
 use framework\core\Factory;
-
+use framework\tools\Upload;
+use framework\tools\Thumb;
 /*
 *分类控制器，负责分类的管理
 *分类的增删改查
@@ -30,6 +31,20 @@ class CategoryController extends Controller{
 	//分类添加
 	public function addHandleAction(){
 		$dataPost = $_POST;
+
+		//先接收上传的文件内容，对其进行压缩等操作
+		$uploadObj = new Upload();
+		//var_dump(UPLOAD_PATH);die;
+		$uploadObj->setUploadPath(UPLOAD_PATH.'category/');
+		//var_dump($_FILES);
+		$fileName = $uploadObj->doUpload($_FILES['catLogo']);
+		//var_dump($fileName);die;
+
+		//生成缩略图
+		$thumbObj = new Thumb($fileName);
+		$thumbObj->setThumbPath(THUMB_PATH.'category/');
+		$thumbObj->makeThumb(50,50);
+
 		//插入到数据库
 		$lastInsertId = $this->modelObj->cat_add($dataPost);
 		if($lastInsertId){

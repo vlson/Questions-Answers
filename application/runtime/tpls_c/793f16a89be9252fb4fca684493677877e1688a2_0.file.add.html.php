@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-03-13 22:57:29
+/* Smarty version 3.1.29, created on 2018-04-09 18:34:02
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\category\add.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5aa7e6d94ac528_02097023',
+  'unifunc' => 'content_5acb419a71b2e2_90452497',
   'file_dependency' => 
   array (
     '793f16a89be9252fb4fca684493677877e1688a2' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\category\\add.html',
-      1 => 1520953043,
+      1 => 1523269539,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5aa7e6d94ac528_02097023 ($_smarty_tpl) {
+function content_5acb419a71b2e2_90452497 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -214,7 +214,7 @@ admin/img/logo.png" class="pull-left">
     </div>
 
     <div class="aw-content-wrap">
-        <form method="post" id="category_form" action="?m=admin&c=category&a=addHandle">
+        <form method="post" id="category_form" enctype="multipart/form-data" action="?m=admin&c=category&a=addHandle">
         <div class="mod">
             <div class="mod-head">
                 <h3>
