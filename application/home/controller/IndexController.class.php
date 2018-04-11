@@ -14,7 +14,7 @@ class IndexController extends Controller{
 	//显示首页
 	public function indexAction(){
 		$cateList = $this->modelObj->getAllCategory();
-		var_dump($cateList);die;
+		var_dump($cateList);
 
 		//分配到视图中
 		$this->smartyObj->assign('cateList', $cateList);

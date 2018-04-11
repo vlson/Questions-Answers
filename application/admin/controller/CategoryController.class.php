@@ -43,8 +43,9 @@ class CategoryController extends Controller{
 		//生成缩略图
 		$thumbObj = new Thumb($fileName);
 		$thumbObj->setThumbPath(THUMB_PATH.'category/');
-		$thumbObj->makeThumb(50,50);
+		$thumbPath = $thumbObj->makeThumb(50,50);
 
+		$dataPost['catLogo'] = $thumbPath;
 		//插入到数据库
 		$lastInsertId = $this->modelObj->cat_add($dataPost);
 		if($lastInsertId){
