@@ -171,7 +171,7 @@
     </div>
 
     <div class="aw-content-wrap">
-        <form method="post" id="category_form" action="?m=admin&c=category&a=update">
+        <form method="post" id="category_form" enctype="multipart/form-data" action="?m=admin&c=category&a=update">
         <div class="mod">
             <div class="mod-head">
                 <h3>
@@ -180,12 +180,14 @@
             </div>
             <div class="tab-content mod-content">
                 <table class="table table-striped">
-                    <tbody><tr>
+                    <tbody>
+                    <tr>
                         <td>
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">分类标题:</span>
                                 <div class="col-sm-5 col-xs-8">
                                     <input type="hidden" value="<{$catInfo['catId']}>" name="catId">
+                                    <input type="hidden" value="<{$catInfo['catLogo']}>" name="oldCatLogo">
                                     <input type="text" value="<{$catInfo['catName']}>" name="catName" class="form-control">
                                 </div>
                             </div>
@@ -202,7 +204,7 @@
                                         <{foreach $category as $v}>
                                             <option value="<{$v['catId']}>" 
                                                 <{if $catInfo['parentId'] == $v['catId']}> selected<{/if}>>
-                                                <{$v['catName']}> 
+                                                <{$v['catName']|indent:$v['level']:'&nbsp;&nbsp;&nbsp;'}>    
                                             </option>
                                         <{/foreach}>
                                     </select>
@@ -210,6 +212,19 @@
                             </div>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <span class="col-sm-4 col-xs-3 control-label">分类Logo:</span>
+                                <div class="col-sm-5 col-xs-8">
+                                    <img src="<{THUMB_PATH}>category/<{$catInfo['catLogo']}>">
+                                    <input type="file" name="catLogo"  class="form-control">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
                     </tbody><tfoot>
                     <tr>
                         <td>

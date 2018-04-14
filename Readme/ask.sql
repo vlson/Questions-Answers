@@ -50,3 +50,13 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2018-02-06 19:10:01
+CREATE TABLE ask_topic (
+	topicId INT PRIMARY KEY auto_increment comment '自增id',
+	topicTitle VARCHAR (64) not NULL comment '话题名称',
+	topicDesc VARCHAR (128) comment '话题描述',
+	topicLogo VARCHAR (128) comment '话题图片',
+	userId INT comment '添加话题用户',
+	addTime datetime not null default '0000-00-00 00:00:00' comment '事件',
+	focusNums INT comment '关注人数',
+	talkNums INT comment '讨论人数'
+) ENGINE myisam DEFAULT charset utf8;

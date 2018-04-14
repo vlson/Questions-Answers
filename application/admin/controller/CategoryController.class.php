@@ -57,6 +57,15 @@ class CategoryController extends Controller{
 	//分类删除
 	public function deleteAction(){
 		$catId = $_GET['id'];
+		//首先查询该分类的信息
+		$field = array('catId', 'catName', 'catLogo');
+		$where = array('catId'=>$catId);
+		$catInfo = $this->modelObj->find($field, $where);
+		//先删除图片(原图&缩略图)
+		@unlink(THUMB_PATH.'category/'.$catInfo['catLogo']);
+		$logoPath = str_replace('thumb_', '', $catInfo['catLogo']);
+		@unlink(UPLOAD_PATH.'category/'.$logoPath);
+		//再删除数据库中的信息
 		$res = $this->modelObj->cat_delete($catId);
 		if($res){
 			$this->jump("删除成功！", "index.php?m=admin&c=category&a=index", 3);
@@ -67,13 +76,15 @@ class CategoryController extends Controller{
 	//分类编辑
 	public function editAction(){
 		$catId = $_GET['id'];
-		$field = array('catId','catName','parentId');
+		$field = array('catId','catName','parentId', 'catLogo');
 		$where = array('catId'=>$catId);
 		$catInfo = $this->modelObj->findCategory($field, $where);
 
-		$this->smartyObj->assign('catInfo', $catInfo);
 		$categoryList = $this->modelObj->getAllCategory();
-		$this->smartyObj->assign('category', $categoryList);
+		$res = $this->modelObj->getTreeCategory($categoryList);
+		//var_dump($catInfo);die;
+		$this->smartyObj->assign('catInfo', $catInfo);
+		$this->smartyObj->assign('category', $res);
 		$this->smartyObj->display('category/edit.html');
 	}
 	//分类编辑保存
@@ -81,10 +92,38 @@ class CategoryController extends Controller{
 		$catId = $_POST['catId'];
 		$catName = $_POST['catName'];
 		$parentId = $_POST['parentId'];
+		$oldCatLogo = $_POST['oldCatLogo'];
 
+		// var_dump($_POST);
+		// var_dump($_FILES['catLogo']);die;
 		$data = array('catName'=>$catName, 'parentId'=>$parentId);
 		$where = array('catId'=>$catId);
 
+		if($_FILES['catLogo']['error'] == 0){
+			//
+			//先接收上传的文件内容，对其进行压缩等操作
+			$uploadObj = new Upload();
+			//var_dump(UPLOAD_PATH);die;
+			$uploadObj->setUploadPath(UPLOAD_PATH.'category/');
+			//var_dump($_FILES);
+			$fileName = $uploadObj->doUpload($_FILES['catLogo']);
+			//var_dump($fileName);die;
+
+			//生成缩略图
+			$thumbObj = new Thumb($fileName);
+			$thumbObj->setThumbPath(THUMB_PATH.'category/');
+			$thumbPath = $thumbObj->makeThumb(50,50);
+
+			//再删除旧的图片(原图&缩略图)
+			@unlink(THUMB_PATH.'category/'.$oldCatLogo);
+			$logoPath = str_replace('thumb_', '', $oldCatLogo);
+			@unlink(UPLOAD_PATH.'category/'.$logoPath);
+
+			//var_dump($thumbPath);die;
+			$data['catLogo'] = $thumbPath;
+
+		}
+		//var_dump($data);die;
 		$res = $this->modelObj->updateCategory($data, $where);
 		if($res){
 			$this->jump("修改成功！", "index.php?m=admin&c=category&a=index", 3);

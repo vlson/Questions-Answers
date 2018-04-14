@@ -1,26 +1,3 @@
-<?php
-/* Smarty version 3.1.29, created on 2018-04-13 10:20:02
-  from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\category\edit.html" */
-
-if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
-  'has_nocache_code' => false,
-  'version' => '3.1.29',
-  'unifunc' => 'content_5ad013d2924772_66121056',
-  'file_dependency' => 
-  array (
-    'b9a55f1a6ad23137f6c3189028f3c5486ec7a9da' => 
-    array (
-      0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\category\\edit.html',
-      1 => 1523586001,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5ad013d2924772_66121056 ($_smarty_tpl) {
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,33 +8,18 @@ function content_5ad013d2924772_66121056 ($_smarty_tpl) {
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="blank" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
-    <title>分类管理-有问必答</title>
-    <link href="<?php echo PUBLIC_PATH;?>
-home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<?php echo PUBLIC_PATH;?>
-home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<?php echo PUBLIC_PATH;?>
-admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-home/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-admin/js/framework.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo PUBLIC_PATH;?>
-admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
->
+    <title>话题管理-有问必答</title>
+    <link href="../static/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="../static/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="../static/admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
+    <script src="../static/js/jquery.2.js?v=20151125" type="text/javascript"></script>
+    <script src="../static/js/jquery.form.js?v=20151125" type="text/javascript"></script>
+    <script src="../static/admin/js/aws_admin.js?v=20151125" type="text/javascript"></script>
+    <script src="../static/admin/js/aws_admin_template.js?v=20151125" type="text/javascript"></script>
+    <script src="../static/admin/js/framework.js?v=20151125" type="text/javascript"></script>
+    <script src="../static/admin/js/global.js?v=20151125" type="text/javascript"></script>
     <!--[if lte IE 8]>
-    <?php echo '<script'; ?>
- type="text/javascript" src="../static/js/respond.js"><?php echo '</script'; ?>
->
+    <script type="text/javascript" src="../static/js/respond.js"></script>
     <![endif]-->
 </head>
 
@@ -72,8 +34,7 @@ admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
 
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                        <img width="30" class="img-circle" src="<?php echo PUBLIC_PATH;?>
-common/avatar-mid-img.png">
+                        <img width="30" class="img-circle" src="../static/common/avatar-mid-img.png">
                         itbull
                         <span class="caret"></span>
                     </a>
@@ -100,8 +61,7 @@ common/avatar-mid-img.png">
     <div id="aw-side" class="aw-side ps-container">
         <div class="mod">
             <div class="mod-logo">
-                <img alt="" src="<?php echo PUBLIC_PATH;?>
-admin/img/logo.png" class="pull-left">
+                <img alt="" src="../static/admin/img/logo.png" class="pull-left">
                 <h1>有问必答</h1>
             </div>
 
@@ -126,13 +86,13 @@ admin/img/logo.png" class="pull-left">
                 </li>
 
                 <li>
-                    <a data="icon" class=" icon icon-reply active" href="javascript:;">
+                    <a data="icon" class="icon icon-reply active" href="javascript:;">
                         <span>内容管理</span>
                     </a>
 
                     <ul class="hide" style="display: block;">
                         <li>
-                            <a class="active" href="category.html">
+                            <a href="category.html">
                                 <span>分类管理</span>
                             </a>
                         </li>
@@ -142,7 +102,7 @@ admin/img/logo.png" class="pull-left">
                             </a>
                         </li>
                         <li>
-                            <a href="topic.html">
+                            <a href="topic.html" class="active">
                                 <span>话题管理</span>
                             </a>
                         </li>
@@ -213,27 +173,23 @@ admin/img/logo.png" class="pull-left">
     </div>
 
     <div class="aw-content-wrap">
-        <form method="post" id="category_form" enctype="multipart/form-data" action="?m=admin&c=category&a=update">
+        <form onsubmit="return false" method="post" id="settings_form" action="">
+        <input type="hidden" value="4" name="topic_id">
         <div class="mod">
             <div class="mod-head">
                 <h3>
-                    <span class="pull-left">分类编辑</span>
+                    <span class="pull-left">话题编辑</span>
                 </h3>
             </div>
+
             <div class="tab-content mod-content">
                 <table class="table table-striped">
-                    <tbody>
-                    <tr>
+                    <tbody><tr>
                         <td>
                             <div class="form-group">
-                                <span class="col-sm-4 col-xs-3 control-label">分类标题:</span>
+                                <span class="col-sm-4 col-xs-3 control-label">缩略图:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catId'];?>
-" name="catId">
-                                    <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catLogo'];?>
-" name="oldCatLogo">
-                                    <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catName'];?>
-" name="catName" class="form-control">
+                                    <a id="topic_pic_uploader"><form enctype="multipart/form-data" method="post" id="upload-form" action="http://localhost/wecenter/?/topic/ajax/upload_topic_pic/topic_id-4" target="ajaxUpload"><input type="submit" class="submit"><input type="file" class="file-input" name="aws_upload_file" multiple="multiple"></form><img name="topic_pic" class="img-polaroid" id="topic_pic" alt="" src="http://localhost/wecenter/static/common/topic-mid-img.png"></a>
                                 </div>
                             </div>
                         </td>
@@ -242,36 +198,9 @@ admin/img/logo.png" class="pull-left">
                     <tr>
                         <td>
                             <div class="form-group">
-                                <span class="col-sm-4 col-xs-3 control-label">父级分类:</span>
+                                <span class="col-sm-4 col-xs-3 control-label">话题标题:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <select class="form-control" name="parentId">
-                                        <option value="0">无</option>
-                                        <?php
-$_from = $_smarty_tpl->tpl_vars['category']->value;
-if (!is_array($_from) && !is_object($_from)) {
-settype($_from, 'array');
-}
-$__foreach_v_0_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
-$_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
-$_smarty_tpl->tpl_vars['v']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
-$_smarty_tpl->tpl_vars['v']->_loop = true;
-$__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
-?>
-                                            <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['catId'];?>
-" 
-                                                <?php if ($_smarty_tpl->tpl_vars['catInfo']->value['parentId'] == $_smarty_tpl->tpl_vars['v']->value['catId']) {?> selected<?php }?>>
-                                                <?php echo preg_replace('!^!m',str_repeat('&nbsp;&nbsp;&nbsp;',$_smarty_tpl->tpl_vars['v']->value['level']),$_smarty_tpl->tpl_vars['v']->value['catName']);?>
-    
-                                            </option>
-                                        <?php
-$_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_local_item;
-}
-if ($__foreach_v_0_saved_item) {
-$_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
-}
-?>
-                                    </select>
+                                    <input type="text" class="form-control" value="" name="topic_title">
                                 </div>
                             </div>
                         </td>
@@ -280,12 +209,9 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
                     <tr>
                         <td>
                             <div class="form-group">
-                                <span class="col-sm-4 col-xs-3 control-label">分类Logo:</span>
+                                <span class="col-sm-4 col-xs-3 control-label">话题描述:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <img src="<?php echo THUMB_PATH;?>
-category/<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catLogo'];?>
-">
-                                    <input type="file" name="catLogo"  class="form-control">
+                                    <textarea name="topic_description" class="form-control"></textarea>
                                 </div>
                             </div>
                         </td>
@@ -294,24 +220,22 @@ category/<?php echo $_smarty_tpl->tpl_vars['catInfo']->value['catLogo'];?>
                     </tbody><tfoot>
                     <tr>
                         <td>
-                            <input type="submit"  value="保存设置">
+                            <input type="button" onclick="AWS.ajax_post($('#settings_form'));" class="btn btn-primary center-block" value="保存设置">
                         </td>
                     </tr>
                     </tfoot>
                 </table>
             </div>
-            </div>
+        </div>
         </form>
     </div>
-
 
     <div class="aw-footer">
         <p>
             Copyright &copy; 2016-2099 - Powered By
-            <a target="blank" href="http://www.questions-answers.com/">有问必答 1.0</a>
+            <a target="blank" href="http://helloitbull.net/">有问必答 1.0</a>
         </p>
     </div>
 
 </body>
-</html><?php }
-}
+</html>

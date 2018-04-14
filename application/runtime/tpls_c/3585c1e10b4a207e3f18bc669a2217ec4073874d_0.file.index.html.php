@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-04-10 10:25:58
+/* Smarty version 3.1.29, created on 2018-04-12 19:10:47
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\home\view\index\index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5acc20b6020838_22922953',
+  'unifunc' => 'content_5acf3eb79dcb37_68315965',
   'file_dependency' => 
   array (
     '3585c1e10b4a207e3f18bc669a2217ec4073874d' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\home\\view\\index\\index.html',
-      1 => 1523326858,
+      1 => 1523531446,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5acc20b6020838_22922953 ($_smarty_tpl) {
+function content_5acf3eb79dcb37_68315965 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html class="">
@@ -259,7 +259,7 @@ $__foreach_cate_0_saved_local_item = $_smarty_tpl->tpl_vars['cate'];
 ?>
 				<dl>
 					<dt>
-						<img alt="PHP" src="<?php echo THUMB_PATH;?>
+						<img alt="分类Logo" src="<?php echo THUMB_PATH;?>
 category/<?php echo $_smarty_tpl->tpl_vars['cate']->value['catLogo'];?>
 "></dt>
 					<dd>
