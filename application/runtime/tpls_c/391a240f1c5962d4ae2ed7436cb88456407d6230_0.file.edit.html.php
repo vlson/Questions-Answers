@@ -1,3 +1,26 @@
+<?php
+/* Smarty version 3.1.29, created on 2018-04-16 00:52:33
+  from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\topic\edit.html" */
+
+if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
+  'has_nocache_code' => false,
+  'version' => '3.1.29',
+  'unifunc' => 'content_5ad38351913a54_56499102',
+  'file_dependency' => 
+  array (
+    '391a240f1c5962d4ae2ed7436cb88456407d6230' => 
+    array (
+      0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\topic\\edit.html',
+      1 => 1523810924,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5ad38351913a54_56499102 ($_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +32,40 @@
     <meta content="blank" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <title>话题管理-有问必答</title>
-    <link href="<{PUBLIC_PATH}>home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<{PUBLIC_PATH}>home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="<{PUBLIC_PATH}>admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
-    <script src="<{PUBLIC_PATH}>home/js/jquery.2.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>home/js/jquery.form.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>admin/js/aws_admin.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>admin/js/aws_admin_template.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>admin/js/framework.js?v=20151125" type="text/javascript"></script>
-    <script src="<{PUBLIC_PATH}>admin/js/global.js?v=20151125" type="text/javascript"></script>
+    <link href="<?php echo PUBLIC_PATH;?>
+home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<?php echo PUBLIC_PATH;?>
+home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<?php echo PUBLIC_PATH;?>
+admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+home/js/jquery.2.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+home/js/jquery.form.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+admin/js/aws_admin.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+admin/js/aws_admin_template.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+admin/js/framework.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo PUBLIC_PATH;?>
+admin/js/global.js?v=20151125" type="text/javascript"><?php echo '</script'; ?>
+>
     <!--[if lte IE 8]>
-    <script type="text/javascript" src="../static/js/respond.js"></script>
+    <?php echo '<script'; ?>
+ type="text/javascript" src="../static/js/respond.js"><?php echo '</script'; ?>
+>
     <![endif]-->
 </head>
 
@@ -34,7 +80,8 @@
 
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                        <img width="30" class="img-circle" src="<{PUBLIC_PATH}>common/avatar-mid-img.png">
+                        <img width="30" class="img-circle" src="<?php echo PUBLIC_PATH;?>
+common/avatar-mid-img.png">
                         itbull
                         <span class="caret"></span>
                     </a>
@@ -61,7 +108,8 @@
     <div id="aw-side" class="aw-side ps-container">
         <div class="mod">
             <div class="mod-logo">
-                <img alt="" src="../static/admin/img/logo.png" class="pull-left">
+                <img alt="" src="<?php echo PUBLIC_PATH;?>
+admin/img/logo.png" class="pull-left">
                 <h1>有问必答</h1>
             </div>
 
@@ -173,14 +221,15 @@
     </div>
 
     <div class="aw-content-wrap">
-        <form enctype="multipart/form-data" method="post" id="settings_form" action="?m=admin&c=topic&a=addHandle">
+        <form method="post" id="settings_form" action="?m=admin&c=topic&a=update" enctype="multipart/form-data">
+        <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['topicInfo']->value['topicId'];?>
+" name="topicId">
+        <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['topicInfo']->value['topicLogo'];?>
+" name="oldTopicLogo">
         <div class="mod">
             <div class="mod-head">
                 <h3>
-                    <ul class="nav nav-tabs">
-                        <li><a href="?m=admin&c=topic&a=index">话题管理</a></li>
-                        <li class="active"><a href="javascript:;">新建话题</a></li>
-                    </ul>
+                    <span class="pull-left">话题编辑</span>
                 </h3>
             </div>
 
@@ -192,11 +241,11 @@
                                 <span class="col-sm-4 col-xs-3 control-label">缩略图:</span>
                                 <div class="col-sm-5 col-xs-8">
                                     <a id="topic_pic_uploader">
-                                        <!-- <form enctype="multipart/form-data" method="post" id="upload-form" action="http://localhost/wecenter/?/topic/ajax/upload_topic_pic/topic_id-4" target="ajaxUpload"><input type="submit" class="submit">
-                                            
-                                        </form> -->
-                                        <input type="file" name="topicLogo" multiple="multiple"  class="form-control">
-                                        <img name="topic_pic" class="img-polaroid" id="topic_pic" alt="" src="http://localhost/wecenter/static/common/topic-mid-img.png"></a>
+                                        <img name="topic_pic" class="img-polaroid" id="topic_pic" alt="" src="<?php echo THUMB_PATH;?>
+topic/<?php echo $_smarty_tpl->tpl_vars['topicInfo']->value['topicLogo'];?>
+">
+                                        <input type="file" class="file-input" name="topicLogo" multiple="multiple">
+                                    </a>
                                 </div>
                             </div>
                         </td>
@@ -207,7 +256,8 @@
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">话题标题:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <input type="topicTitle" class="form-control" value="" name="topicTitle">
+                                    <input type="text" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['topicInfo']->value['topicTitle'];?>
+" name="topicTitle">
                                 </div>
                             </div>
                         </td>
@@ -218,7 +268,8 @@
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">话题描述:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <textarea name="topicDesc" class="form-control"></textarea>
+                                    <textarea name="topicDesc" class="form-control"><?php echo $_smarty_tpl->tpl_vars['topicInfo']->value['topicDesc'];?>
+</textarea>
                                 </div>
                             </div>
                         </td>
@@ -240,9 +291,10 @@
     <div class="aw-footer">
         <p>
             Copyright &copy; 2016-2099 - Powered By
-            <a target="blank" href="">有问必答 1.0</a>
+            <a target="blank" href="http://helloitbull.net/">有问必答 1.0</a>
         </p>
     </div>
 
 </body>
-</html>
+</html><?php }
+}

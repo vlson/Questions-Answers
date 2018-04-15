@@ -19,6 +19,7 @@ class DaoPDO implements I_Dao {
         //初始化PDO对象
         $this->initPDO();
     }
+    
     //3.私有化clone(禁止克隆该类)
     private function __clone(){}
     //4.公有化静态方法(供外部实例化对象的方法)

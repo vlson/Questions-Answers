@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-04-14 17:53:39
+/* Smarty version 3.1.29, created on 2018-04-15 23:57:06
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\topic\add.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ad1cfa3528677_80295694',
+  'unifunc' => 'content_5ad37652499dd9_44065818',
   'file_dependency' => 
   array (
     'c453aa2ffaf983a124b8b7ed9e236a8622e432e9' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\topic\\add.html',
-      1 => 1523699612,
+      1 => 1523807511,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ad1cfa3528677_80295694 ($_smarty_tpl) {
+function content_5ad37652499dd9_44065818 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -221,7 +221,6 @@ common/avatar-mid-img.png">
 
     <div class="aw-content-wrap">
         <form enctype="multipart/form-data" method="post" id="settings_form" action="?m=admin&c=topic&a=addHandle">
-        <input type="hidden" value="4" name="topic_id">
         <div class="mod">
             <div class="mod-head">
                 <h3>
@@ -255,7 +254,7 @@ common/avatar-mid-img.png">
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">话题标题:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <input type="topicTitle" class="form-control" value="" name="topic_title">
+                                    <input type="topicTitle" class="form-control" value="" name="topicTitle">
                                 </div>
                             </div>
                         </td>

@@ -18,53 +18,39 @@ class TopicModel extends Model {
     public function getAllTopic(){
     	return $this->findAll();
     }
-    //获取分类下的子分类
-    //1.操作的数组
-    //2.用来指定哪个分类下的子类，如果走默认值，表示查询所有分类
-    public function getTreeCategory($arr, $p_id=0, $level=0){
-        static $result = array();
-        foreach($arr as $k=>$v){
-            if($v['parentId'] == $p_id){
-                $v['level'] = $level;
-                $result[] = $v;
-                $this->getTreeCategory($arr, $v['catId'], $level+1);
-            }
-        }
-        return $result;
-    }
-    //插入一个商品
-    public function cat_add($data){
-        //验证数据的合法性
-        if($data['catName'] == ''){
+    //校验数据是否已经存在
+    public function checkData($data){
+        if($data['topicTitle'] == ''){
             $this->error[] = '分类标题不能为空';
-        }else if((int)$data['catName'] != 0){
+        }else if((int)$data['topicTitle'] != 0){
             $this->error[] = '分类标题不能为数字';
-        }else if($this->isExits($data['catName'], $data['parentId'])){
-            $this->error[] = '该分类名称已存在';
+        }else if($this->isExits($data['topicTitle'])){
+            $this->error[] = '该话题名称已存在';
         }
-
+        if($data['topicDesc'] == ''){
+            $this->error[] = '话题描述不能为空';
+        }
         if(!empty($this->error)){
             return false;
+        }else{
+            return true;
         }
 
+    }
+    //插入一个话题
+    public function topicAdd($data){
+        //添加数据
         $insertId = $this->insert($data);
         return $insertId;
     }
-    //删除一个分类
-    public function cat_delete($catId){
-        //判断该分类是否为叶子分类
-        $sql = "select * from $this->true_table where parentId=$catId";
-        $res = $this->daoObj->fetchColum($sql);
-        if($res){
-            $this->error[] = "该分类下面还有小弟呢，可不能删除！<br>";
-            return false;
-        }else{
-            $sql = "delete from $this->true_table where catId=$catId";
-            return $this->daoObj->exec($sql);
-        }
+    //删除一个话题
+    public function topicDelete($topicId){
+        $sql = "delete from $this->true_table where topicId=$topicId";
+        return $this->daoObj->exec($sql);
+        
     }
-    //更新一个商品
-    public function updateCategory($data, $where){
+    //更新一个话题
+    public function updateTopic($data, $where){
         $res = $this->update($data, $where);
         if($res){
             return true;
@@ -72,14 +58,14 @@ class TopicModel extends Model {
             return false;
         }
     }
-    //查询商品
-    public function findCategory($field, $where){
+    //查询话题
+    public function findTopic($field, $where){
         $res = $this->find($field, $where);
         return $res;
     }
-    //判断某个分类是否存在
-    public function isExits($catName, $parentId){
-        $sql = "select * from $this->true_table where catName='$catName' and parentId=$parentId";
+    //判断某个话题是否存在
+    public function isExits($topicTitle){
+        $sql = "select * from $this->true_table where topicTitle='$topicTitle'";
         $res = $this->daoObj->fetchColum($sql);
         if($res){
             return true;

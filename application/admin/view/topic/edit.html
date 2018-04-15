@@ -9,15 +9,15 @@
     <meta content="blank" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <title>话题管理-有问必答</title>
-    <link href="../static/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="../static/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
-    <link href="../static/admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
-    <script src="../static/js/jquery.2.js?v=20151125" type="text/javascript"></script>
-    <script src="../static/js/jquery.form.js?v=20151125" type="text/javascript"></script>
-    <script src="../static/admin/js/aws_admin.js?v=20151125" type="text/javascript"></script>
-    <script src="../static/admin/js/aws_admin_template.js?v=20151125" type="text/javascript"></script>
-    <script src="../static/admin/js/framework.js?v=20151125" type="text/javascript"></script>
-    <script src="../static/admin/js/global.js?v=20151125" type="text/javascript"></script>
+    <link href="<{PUBLIC_PATH}>home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<{PUBLIC_PATH}>home/css/icon.css?v=20151125" rel="stylesheet" type="text/css">
+    <link href="<{PUBLIC_PATH}>admin/css/common.css?v=20151125" rel="stylesheet" type="text/css">
+    <script src="<{PUBLIC_PATH}>home/js/jquery.2.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>home/js/jquery.form.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>admin/js/aws_admin.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>admin/js/aws_admin_template.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>admin/js/framework.js?v=20151125" type="text/javascript"></script>
+    <script src="<{PUBLIC_PATH}>admin/js/global.js?v=20151125" type="text/javascript"></script>
     <!--[if lte IE 8]>
     <script type="text/javascript" src="../static/js/respond.js"></script>
     <![endif]-->
@@ -34,7 +34,7 @@
 
                 <li class="dropdown username">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                        <img width="30" class="img-circle" src="../static/common/avatar-mid-img.png">
+                        <img width="30" class="img-circle" src="<{PUBLIC_PATH}>common/avatar-mid-img.png">
                         itbull
                         <span class="caret"></span>
                     </a>
@@ -61,7 +61,7 @@
     <div id="aw-side" class="aw-side ps-container">
         <div class="mod">
             <div class="mod-logo">
-                <img alt="" src="../static/admin/img/logo.png" class="pull-left">
+                <img alt="" src="<{PUBLIC_PATH}>admin/img/logo.png" class="pull-left">
                 <h1>有问必答</h1>
             </div>
 
@@ -173,8 +173,9 @@
     </div>
 
     <div class="aw-content-wrap">
-        <form onsubmit="return false" method="post" id="settings_form" action="">
-        <input type="hidden" value="4" name="topic_id">
+        <form method="post" id="settings_form" action="?m=admin&c=topic&a=update" enctype="multipart/form-data">
+        <input type="hidden" value="<{$topicInfo['topicId']}>" name="topicId">
+        <input type="hidden" value="<{$topicInfo['topicLogo']}>" name="oldTopicLogo">
         <div class="mod">
             <div class="mod-head">
                 <h3>
@@ -189,7 +190,10 @@
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">缩略图:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <a id="topic_pic_uploader"><form enctype="multipart/form-data" method="post" id="upload-form" action="http://localhost/wecenter/?/topic/ajax/upload_topic_pic/topic_id-4" target="ajaxUpload"><input type="submit" class="submit"><input type="file" class="file-input" name="aws_upload_file" multiple="multiple"></form><img name="topic_pic" class="img-polaroid" id="topic_pic" alt="" src="http://localhost/wecenter/static/common/topic-mid-img.png"></a>
+                                    <a id="topic_pic_uploader">
+                                        <img name="topic_pic" class="img-polaroid" id="topic_pic" alt="" src="<{THUMB_PATH}>topic/<{$topicInfo['topicLogo']}>">
+                                        <input type="file" class="file-input" name="topicLogo" multiple="multiple">
+                                    </a>
                                 </div>
                             </div>
                         </td>
@@ -200,7 +204,7 @@
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">话题标题:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <input type="text" class="form-control" value="" name="topic_title">
+                                    <input type="text" class="form-control" value="<{$topicInfo['topicTitle']}>" name="topicTitle">
                                 </div>
                             </div>
                         </td>
@@ -211,7 +215,7 @@
                             <div class="form-group">
                                 <span class="col-sm-4 col-xs-3 control-label">话题描述:</span>
                                 <div class="col-sm-5 col-xs-8">
-                                    <textarea name="topic_description" class="form-control"></textarea>
+                                    <textarea name="topicDesc" class="form-control"><{$topicInfo['topicDesc']}></textarea>
                                 </div>
                             </div>
                         </td>
@@ -220,7 +224,7 @@
                     </tbody><tfoot>
                     <tr>
                         <td>
-                            <input type="button" onclick="AWS.ajax_post($('#settings_form'));" class="btn btn-primary center-block" value="保存设置">
+                            <input type="submit" class="btn btn-primary center-block" value="保存设置">
                         </td>
                     </tr>
                     </tfoot>

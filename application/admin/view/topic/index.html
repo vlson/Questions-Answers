@@ -209,15 +209,24 @@
 
                                     <td><a target="_blank" href=""><{$topic.topicTitle}></a></td>
 
-                                    <td>1</td>
+                                    <td><{$topic.talkNums}></td>
 
-                                    <td>1</td>
+                                    <td><{$topic.focusNums}></td>
 
                                     <td><a target="_blank" href=""><{$topic.userId}></a></td>
 
                                     <td><{$topic.addTime}></td>
 
-                                    <td><a data-toggle="tooltip" title="" class="icon icon-edit md-tip" href="topic_edit.html" data-original-title="编辑"></a></td>
+                                    <td>
+                                        <a data-toggle="tooltip" title="" class="icon icon-edit md-tip" href="?m=admin&c=topic&a=edit&topicId=<{$topic.topicId}>" data-original-title="编辑"></a>
+                                        <a data-toggle="tooltip" title="" class="icon icon-trash md-tip" href="?m=admin&c=topic&a=delete&topicId=<{$topic.topicId}>" data-original-title="删除"></a>
+                                    </td>
+
+                                    <td></td>
+                                </tr>
+                                <{foreachelse}>
+                                <tr>
+                                    <td colspan='6'>暂时数据为空</td>
                                 </tr>
                                 <{/foreach}>
 

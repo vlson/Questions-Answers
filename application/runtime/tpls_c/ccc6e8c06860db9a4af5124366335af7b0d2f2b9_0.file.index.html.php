@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2018-04-14 17:41:49
+/* Smarty version 3.1.29, created on 2018-04-16 00:32:23
   from "D:\WAMP\Apache24\htdocs\Questions-Answers\application\admin\view\topic\index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ad1ccdddce455_88899605',
+  'unifunc' => 'content_5ad37e97de96e3_21387954',
   'file_dependency' => 
   array (
     'ccc6e8c06860db9a4af5124366335af7b0d2f2b9' => 
     array (
       0 => 'D:\\WAMP\\Apache24\\htdocs\\Questions-Answers\\application\\admin\\view\\topic\\index.html',
-      1 => 1523698906,
+      1 => 1523809914,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ad1ccdddce455_88899605 ($_smarty_tpl) {
+function content_5ad37e97de96e3_21387954 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@ function content_5ad1ccdddce455_88899605 ($_smarty_tpl) {
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="blank" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
-    <title>分类管理-有问必答</title>
+    <title>话题管理-有问必答</title>
     <link href="<?php echo PUBLIC_PATH;?>
 home/css/bootstrap.css?v=20151125" rel="stylesheet" type="text/css">
     <link href="<?php echo PUBLIC_PATH;?>
@@ -263,9 +263,11 @@ $__foreach_topic_0_saved_local_item = $_smarty_tpl->tpl_vars['topic'];
                                     <td><a target="_blank" href=""><?php echo $_smarty_tpl->tpl_vars['topic']->value['topicTitle'];?>
 </a></td>
 
-                                    <td>1</td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['topic']->value['talkNums'];?>
+</td>
 
-                                    <td>1</td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['topic']->value['focusNums'];?>
+</td>
 
                                     <td><a target="_blank" href=""><?php echo $_smarty_tpl->tpl_vars['topic']->value['userId'];?>
 </a></td>
@@ -273,10 +275,24 @@ $__foreach_topic_0_saved_local_item = $_smarty_tpl->tpl_vars['topic'];
                                     <td><?php echo $_smarty_tpl->tpl_vars['topic']->value['addTime'];?>
 </td>
 
-                                    <td><a data-toggle="tooltip" title="" class="icon icon-edit md-tip" href="topic_edit.html" data-original-title="编辑"></a></td>
+                                    <td>
+                                        <a data-toggle="tooltip" title="" class="icon icon-edit md-tip" href="?m=admin&c=topic&a=edit&topicId=<?php echo $_smarty_tpl->tpl_vars['topic']->value['topicId'];?>
+" data-original-title="编辑"></a>
+                                        <a data-toggle="tooltip" title="" class="icon icon-trash md-tip" href="?m=admin&c=topic&a=delete&topicId=<?php echo $_smarty_tpl->tpl_vars['topic']->value['topicId'];?>
+" data-original-title="删除"></a>
+                                    </td>
+
+                                    <td></td>
                                 </tr>
                                 <?php
 $_smarty_tpl->tpl_vars['topic'] = $__foreach_topic_0_saved_local_item;
+}
+if (!$_smarty_tpl->tpl_vars['topic']->_loop) {
+?>
+                                <tr>
+                                    <td colspan='6'>暂时数据为空</td>
+                                </tr>
+                                <?php
 }
 if ($__foreach_topic_0_saved_item) {
 $_smarty_tpl->tpl_vars['topic'] = $__foreach_topic_0_saved_item;
